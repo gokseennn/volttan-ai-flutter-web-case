@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_utils/get_utils.dart';
 
 extension ContextExtension on BuildContext {
+  double get xsmallPadding => 12;
   double get smallPadding => 18;
-  double get mediumPadding => 48;
-  double get largePadding => 64;
-  double get xlargePadding => 96;
+  double get mediumPadding => 32;
+  double get largePadding => 48;
+  double get xlargePadding => 64;
 
+  EdgeInsetsGeometry get xsmallPaddingAll => EdgeInsets.all(xsmallPadding);
   EdgeInsetsGeometry get smallPaddingAll => EdgeInsets.all(smallPadding);
   EdgeInsetsGeometry get mediumPaddingAll => EdgeInsets.all(mediumPadding);
   EdgeInsetsGeometry get largePaddingAll => EdgeInsets.all(largePadding);
   EdgeInsetsGeometry get xlargePaddingAll => EdgeInsets.all(xlargePadding);
 
+  EdgeInsetsGeometry get xsmallPaddingHorizontal =>
+      EdgeInsets.symmetric(horizontal: xsmallPadding);
   EdgeInsetsGeometry get smallPaddingHorizontal =>
       EdgeInsets.symmetric(horizontal: smallPadding);
   EdgeInsetsGeometry get mediumPaddingHorizontal =>
@@ -21,6 +24,8 @@ extension ContextExtension on BuildContext {
   EdgeInsetsGeometry get xlargePaddingHorizontal =>
       EdgeInsets.symmetric(horizontal: xlargePadding);
 
+  EdgeInsetsGeometry get xsmallPaddingVertical =>
+      EdgeInsets.symmetric(vertical: xsmallPadding);
   EdgeInsetsGeometry get smallPaddingVertical =>
       EdgeInsets.symmetric(vertical: smallPadding);
   EdgeInsetsGeometry get mediumPaddingVertical =>
@@ -34,11 +39,5 @@ extension ContextExtension on BuildContext {
     minimumSize: WidgetStateProperty.all<Size>(Size(double.infinity, 48)),
   );
 
-  BoxShadow get defaultBoxShadow => BoxShadow(
-    color: theme.colorScheme.secondary,
-    spreadRadius: 0,
-    offset: const Offset(0, 0),
-  );
-
-  BoxBorder get defaultBorderAll => Border.all(color: Colors.white, width: 0);
+  BorderRadius get defaultBorderRadius => BorderRadius.circular(8);
 }

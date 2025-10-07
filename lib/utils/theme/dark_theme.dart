@@ -9,7 +9,6 @@ class DarkTheme {
     elevatedButtonTheme: _elevatedButtonThemeData,
     inputDecorationTheme: _inputDecorationTheme,
     textTheme: _textTheme,
-    floatingActionButtonTheme: _floatingActionButtonThemeData,
     highlightColor: Colors.transparent,
     splashColor: Colors.transparent,
   );
@@ -24,15 +23,55 @@ class DarkTheme {
 
   static final ElevatedButtonThemeData _elevatedButtonThemeData =
       ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          elevation: 0,
-          padding: EdgeInsets.all(16),
-          backgroundColor: _colorScheme.primary,
-          foregroundColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+        style: ButtonStyle(
+          elevation: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.hovered)) {
+              return 4.0;
+            }
+            if (states.contains(WidgetState.pressed)) {
+              return 2.0;
+            }
+            return 0.0;
+          }),
+          padding: const WidgetStatePropertyAll(
+            EdgeInsets.symmetric(vertical: 14, horizontal: 20),
           ),
-          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          minimumSize: const WidgetStatePropertyAll(Size(48, 48)),
+          backgroundColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.disabled)) {
+              return _colorScheme.tertiary.withValues(alpha: 0.4);
+            }
+            if (states.contains(WidgetState.pressed)) {
+              return _colorScheme.tertiary.withValues(alpha: 0.9);
+            }
+            return _colorScheme.tertiary;
+          }),
+          foregroundColor: const WidgetStatePropertyAll(Colors.white),
+          overlayColor: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.hovered)) {
+              return _colorScheme.tertiary.withValues(alpha: 0.08);
+            }
+            if (states.contains(WidgetState.pressed)) {
+              return _colorScheme.tertiary.withValues(alpha: 0.16);
+            }
+            return _colorScheme.tertiary.withValues(alpha: 0.12);
+          }),
+          textStyle: WidgetStatePropertyAll(
+            TextStyle(
+              fontSize: 16,
+              fontVariations: const [FontVariation('wght', 700)],
+            ),
+          ),
+          shadowColor: WidgetStatePropertyAll(
+            Colors.black.withValues(alpha: 0.25),
+          ),
+          surfaceTintColor: const WidgetStatePropertyAll(Colors.transparent),
+          shape: WidgetStatePropertyAll(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+              side: BorderSide(color: _colorScheme.tertiary, width: 1),
+            ),
+          ),
         ),
       );
 
@@ -127,15 +166,8 @@ class DarkTheme {
     ),
     bodySmall: TextStyle(fontSize: 16, color: _colorScheme.surface),
   );
-
-  static final FloatingActionButtonThemeData _floatingActionButtonThemeData =
-      FloatingActionButtonThemeData(
-        backgroundColor: _colorScheme.primary,
-        foregroundColor: _colorScheme.surface,
-        iconSize: 32,
-        shape: CircleBorder(
-          side: BorderSide(color: _colorScheme.tertiary, width: 1),
-        ),
-        elevation: 0,
-      );
+  IconThemeData get iconThemeData => IconThemeData(
+    color: _colorScheme.surface,
+    size: 24,
+  );
 }

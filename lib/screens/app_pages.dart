@@ -1,4 +1,5 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
+import 'package:voltran_ai_web/screens/home_screen/controller/home_binding.dart';
 import 'package:voltran_ai_web/screens/home_screen/view/home_screen.dart';
 
 class AppPages {
@@ -6,6 +7,7 @@ class AppPages {
     GetPage(
       name: HomeScreen.routeName,
       page: () => HomeScreen(),
+      binding: HomeBinding(),
     ),
   ];
 }

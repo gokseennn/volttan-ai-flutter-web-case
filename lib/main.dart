@@ -18,13 +18,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //TODO Environment
   await initalizeServices();
-
   runApp(
-    GestureDetector(
-      onTap: () {
-        FocusScope.of(Get.context!).unfocus();
-      },
-      child: VoltranAiWebApp(),
-    ),
+    VoltranAiWebApp(),
   );
 }

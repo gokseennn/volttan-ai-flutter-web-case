@@ -4,7 +4,7 @@ import 'package:voltran_ai_web/screens/home_screen/controller/home_controller.da
 class HomeBinding extends Binding {
   @override
   List<Bind> dependencies() => [
-    Bind.put(
+    Bind.lazyPut(
       () => HomeController(),
     ),
   ];
