@@ -124,11 +124,21 @@ class SelectFileWidget extends StatelessWidget {
 
                   Padding(
                     padding: EdgeInsets.only(top: context.smallPadding),
-                    child: Text(
-                      'Resimlerinizi Yükleyin',
-                      style: context.theme.textTheme.headlineSmall?.copyWith(
-                        color: context.theme.colorScheme.surface,
-                        fontWeight: FontWeight.bold,
+                    child: ShaderMask(
+                      shaderCallback: (bounds) => LinearGradient(
+                        colors: [
+                          context.theme.colorScheme.surface,
+                          context.theme.colorScheme.tertiary,
+                          context.theme.colorScheme.surface,
+                        ],
+                        stops: const [0.0, 0.5, 1.0],
+                      ).createShader(bounds),
+                      child: Text(
+                        'Resimlerinizi Yükleyin',
+                        style: context.theme.textTheme.headlineSmall?.copyWith(
+                          color: context.theme.colorScheme.surface,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
