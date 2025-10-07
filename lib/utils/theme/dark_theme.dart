@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class DarkTheme {
   DarkTheme._();
   static final ThemeData themeData = ThemeData(
-    brightness: Brightness.light,
+    brightness: Brightness.dark,
     colorScheme: _colorScheme,
     fontFamily: 'Montserrat',
     elevatedButtonTheme: _elevatedButtonThemeData,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:voltran_ai_web/common/widgets/app_header.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -6,8 +7,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const AppHeader(),
       body: Center(
-        child: Text('Home Screen'),
+        child: Text('Home Scree2n'),
       ),
     );
   }
