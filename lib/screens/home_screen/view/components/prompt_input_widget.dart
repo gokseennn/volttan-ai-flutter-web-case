@@ -14,7 +14,7 @@ class PromptInputWidget extends StatelessWidget {
       margin: EdgeInsets.only(
         right: isWide ? context.mediumPadding : 0,
       ),
-      height: context.height * 0.45,
+      height: 450,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,

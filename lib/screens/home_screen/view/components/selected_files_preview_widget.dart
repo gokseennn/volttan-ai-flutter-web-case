@@ -22,7 +22,7 @@ class SelectedFilesPreviewWidget extends StatelessWidget {
         m: context.width * .95,
         s: context.width * .95,
       ),
-      height: context.height * 0.45,
+      height: 450,
       child: Column(
         children: [
           Container(
