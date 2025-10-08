@@ -28,14 +28,7 @@ class SelectedFilesPreviewWidget extends StatelessWidget {
           Container(
             padding: context.xsmallPaddingAll,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  context.theme.colorScheme.surface.withValues(alpha: 0.08),
-                  context.theme.colorScheme.surface.withValues(alpha: 0.04),
-                ],
-              ),
+              gradient: context.cardGradient,
               borderRadius: context.defaultBorderRadius,
               border: Border.all(
                 color: context.theme.colorScheme.tertiary.withValues(
@@ -43,16 +36,7 @@ class SelectedFilesPreviewWidget extends StatelessWidget {
                 ),
                 width: 1,
               ),
-              boxShadow: [
-                BoxShadow(
-                  color: context.theme.colorScheme.tertiary.withValues(
-                    alpha: 0.1,
-                  ),
-                  blurRadius: 20,
-                  spreadRadius: 1,
-                  offset: const Offset(0, 4),
-                ),
-              ],
+              boxShadow: context.cardShadow,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -118,15 +102,7 @@ class SelectedFilesPreviewWidget extends StatelessWidget {
                       ],
                     ),
                     borderRadius: context.defaultBorderRadius,
-                    boxShadow: [
-                      BoxShadow(
-                        color: context.theme.colorScheme.tertiary.withValues(
-                          alpha: 0.3,
-                        ),
-                        blurRadius: 8,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
+                    boxShadow: context.imageCardShadow,
                   ),
                   child: ElevatedButton.icon(
                     onPressed: controller.clearFiles,
@@ -167,16 +143,7 @@ class SelectedFilesPreviewWidget extends StatelessWidget {
                   ),
                   width: 1,
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: context.theme.colorScheme.tertiary.withValues(
-                      alpha: 0.1,
-                    ),
-                    blurRadius: 20,
-                    spreadRadius: 1,
-                    offset: const Offset(0, 4),
-                  ),
-                ],
+                boxShadow: context.cardShadow,
               ),
               child: Expanded(
                 child: GridView.builder(

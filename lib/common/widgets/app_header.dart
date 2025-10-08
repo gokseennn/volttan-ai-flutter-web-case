@@ -14,14 +14,7 @@ class AppHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            context.theme.colorScheme.primary,
-            context.theme.colorScheme.primary.withValues(alpha: 0.95),
-          ],
-        ),
+        gradient: context.headerGradient,
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(

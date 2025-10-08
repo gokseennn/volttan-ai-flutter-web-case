@@ -24,14 +24,7 @@ class ImageCard extends StatelessWidget {
           color: context.theme.colorScheme.tertiary.withValues(alpha: 0.3),
           width: 1,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: context.theme.colorScheme.tertiary.withValues(alpha: 0.1),
-            blurRadius: 8,
-            spreadRadius: 1,
-            offset: const Offset(0, 2),
-          ),
-        ],
+        boxShadow: context.imageCardShadow,
       ),
       child: ClipRRect(
         borderRadius: context.defaultBorderRadius,

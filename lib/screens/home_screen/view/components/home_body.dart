@@ -19,16 +19,7 @@ class HomeBody extends StatelessWidget {
           minHeight: context.height - MediaQuery.of(context).padding.top,
         ),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              context.theme.colorScheme.primary,
-              context.theme.colorScheme.primary.withValues(alpha: .8),
-              context.theme.colorScheme.secondary,
-            ],
-            stops: const [0.0, 0.3, 1.0],
-          ),
+          gradient: context.primaryGradient,
         ),
         child: Column(
           children: [
@@ -42,14 +33,8 @@ class HomeBody extends StatelessWidget {
               ),
               margin: EdgeInsets.only(top: context.largePadding),
               child: ShaderMask(
-                shaderCallback: (bounds) => LinearGradient(
-                  colors: [
-                    context.theme.colorScheme.surface,
-                    context.theme.colorScheme.tertiary,
-                    context.theme.colorScheme.surface,
-                  ],
-                  stops: const [0.0, 0.5, 1.0],
-                ).createShader(bounds),
+                shaderCallback: (bounds) =>
+                    context.textGradient.createShader(bounds),
                 child: Text(
                   'Yaratıcılığınızı AI ile Serbest Bırakın',
                   style: context.theme.textTheme.displayMedium?.copyWith(

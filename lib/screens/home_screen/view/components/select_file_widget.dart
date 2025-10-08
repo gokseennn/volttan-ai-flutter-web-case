@@ -61,24 +61,7 @@ class SelectFileWidget extends StatelessWidget {
                   ),
                   width: 2,
                 ),
-                boxShadow: [
-                  BoxShadow(
-                    color: context.theme.colorScheme.tertiary.withValues(
-                      alpha: 0.4,
-                    ),
-                    blurRadius: 30,
-                    spreadRadius: 3,
-                    offset: const Offset(0, 10),
-                  ),
-                  BoxShadow(
-                    color: context.theme.colorScheme.tertiary.withValues(
-                      alpha: 0.2,
-                    ),
-                    blurRadius: 50,
-                    spreadRadius: 5,
-                    offset: const Offset(0, 20),
-                  ),
-                ],
+                boxShadow: context.dropZoneShadow,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -99,15 +82,7 @@ class SelectFileWidget extends StatelessWidget {
                         ],
                         stops: const [0.0, 0.7, 1.0],
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: context.theme.colorScheme.tertiary.withValues(
-                            alpha: 0.3,
-                          ),
-                          blurRadius: 20,
-                          spreadRadius: 2,
-                        ),
-                      ],
+                      boxShadow: context.imageCardShadow,
                     ),
                     child: Icon(
                       Icons.cloud_upload_outlined,
@@ -158,25 +133,9 @@ class SelectFileWidget extends StatelessWidget {
                     padding: EdgeInsets.only(top: context.smallPadding),
                     child: Container(
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            context.theme.colorScheme.tertiary,
-                            context.theme.colorScheme.tertiary.withValues(
-                              alpha: 0.8,
-                            ),
-                          ],
-                        ),
+                        gradient: context.buttonGradient,
                         borderRadius: context.defaultBorderRadius,
-                        boxShadow: [
-                          BoxShadow(
-                            color: context.theme.colorScheme.tertiary
-                                .withValues(
-                                  alpha: 0.4,
-                                ),
-                            blurRadius: 12,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
+                        boxShadow: context.buttonShadow,
                       ),
                       child: ElevatedButton.icon(
                         onPressed: controller.onTapFileSelect,

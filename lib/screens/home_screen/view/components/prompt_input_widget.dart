@@ -16,27 +16,13 @@ class PromptInputWidget extends StatelessWidget {
       ),
       height: 450,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            context.theme.colorScheme.surface.withValues(alpha: 0.08),
-            context.theme.colorScheme.surface.withValues(alpha: 0.04),
-          ],
-        ),
+        gradient: context.cardGradient,
         borderRadius: context.defaultBorderRadius,
         border: Border.all(
           color: context.theme.colorScheme.tertiary.withValues(alpha: 0.2),
           width: 1,
         ),
-        boxShadow: [
-          BoxShadow(
-            color: context.theme.colorScheme.tertiary.withValues(alpha: 0.1),
-            blurRadius: 20,
-            spreadRadius: 1,
-            offset: const Offset(0, 4),
-          ),
-        ],
+        boxShadow: context.cardShadow,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,15 +112,7 @@ class PromptInputWidget extends StatelessWidget {
                 ],
               ),
               borderRadius: context.defaultBorderRadius,
-              boxShadow: [
-                BoxShadow(
-                  color: context.theme.colorScheme.tertiary.withValues(
-                    alpha: 0.3,
-                  ),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ],
+              boxShadow: context.imageCardShadow,
             ),
             child: ElevatedButton.icon(
               onPressed: () {},
